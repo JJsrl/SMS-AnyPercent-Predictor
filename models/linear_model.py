@@ -18,5 +18,5 @@ class LinearModel:
         return {
             "r2": r2_score(y_test, y_pred),
             "mae": mean_absolute_error(y_test, y_pred),
-            "rmse": root_mean_squared_error(y_test, y_pred, squared=False)
+            "rmse": root_mean_squared_error(y_test, y_pred)  # ← Remove squared=False
         }

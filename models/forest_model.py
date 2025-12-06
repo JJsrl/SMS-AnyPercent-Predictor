@@ -2,7 +2,7 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 import numpy as np
 
-class RandomForestModel:
+class ForestModel:
     """Random Forest model for Any% prediction."""
 
     def __init__(self, n_estimators=200, max_depth=None, random_state=42):
