@@ -58,5 +58,18 @@ def preprocess_dataframe(df):
 
     # 5. Drop ANY rows that STILL have NaN in Personal Best
     df = df.dropna(subset=["Personal Best"])
+    
+    # 6. Remove extreme outliers based on Sum of Bests
+    feature_cols = [col for col in df.columns if col != "Personal Best"]
+    df['SumOfBests'] = df[feature_cols].sum(axis=1)
+    
+    # Filter: Keep only rows where Sum of Bests is reasonable (< 3500 seconds)
+    # Most legitimate runs have Sum of Bests between 2000-3000 seconds
+    print(f"Before outlier removal: {len(df)} rows")
+    df = df[df['SumOfBests'] < 3500]
+    print(f"After outlier removal: {len(df)} rows")
+    
+    # Drop the temporary SumOfBests column
+    df = df.drop(columns=['SumOfBests'])
 
-    return df
+    return df      
