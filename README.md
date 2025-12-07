@@ -178,6 +178,27 @@ Bianco 4 is the most technically demanding level in the early game, requiring pr
 - Linear Regression performed moderately (R² = 0.595), but still struggled with the full complexity of the relationships
 - Bagging predictions are accurate within **~2.68 minutes** on average (MAE), making it reliable for performance prediction
 
+### Why Bagging Outperformed Random Forest
+
+Interestingly, Bagging (R² = 0.712) slightly outperformed Random Forest (R² = 0.697), which is unexpected since Random Forest is typically superior. This occurs because:
+
+**Dataset Characteristics:**
+- Only **43 features** (relatively small feature space)
+- **Highly correlated features** (all measuring speedrunning performance)
+- **All features are relevant** (every level contributes to prediction)
+
+**Random Forest's Limitation:**
+- Random Forest uses `max_features = sqrt(43) ≈ 6-7` features per split
+- This means each tree can only consider ~15% of features when making split decisions
+- Important predictors like Bianco 4 may be randomly excluded from critical splits
+
+**Bagging's Advantage:**
+- Bagging uses **all 43 features** for every split decision
+- Bootstrap sampling alone provides sufficient tree diversity
+- Trees consistently have access to the most predictive features
+
+**Conclusion:** In datasets with small, correlated, and universally relevant feature sets, Bagging's simpler approach can outperform Random Forest's additional feature randomization. The extra randomness becomes a handicap rather than a benefit when all features are useful and the feature space is already compact.
+
 ### Feature Importance Findings
 - **Bianco 4** is the single most predictive level for Any% completion times by a significant margin
 - **Pianta levels remain highly important** - Pianta 1, 3, and 6 are all in the top 6 most important predictors
