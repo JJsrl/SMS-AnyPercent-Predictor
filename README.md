@@ -2,7 +2,7 @@
 
 **Author:** Josh Aresco  
 **Course:** Applied Machine Learning  
-**Date:** December 2024
+**Date:** December 2025
 
 ---
 
@@ -183,13 +183,12 @@ Bianco 4 is the most technically demanding level in the early game, requiring pr
 - **Pianta levels remain highly important** - Pianta 1, 3, and 6 are all in the top 6 most important predictors
 - The top 3 levels (Bianco 4, Pianta 1, Pianta 3) contain significantly more predictive power than other stages
 - **Pinna 3 and Noki 1** also emerge as important mid-to-late game indicators
-- **Corona Mountain**, the final level, has relatively low importance despite being the last stage - suggesting early-to-mid game performance is more indicative of overall skill
 
 ### Implications for Speedrunners
 - Speedrunners looking to improve their Any% times should prioritize practice on **Bianco 4 and Pianta levels**
 - Performance in early-to-mid game levels (Bianco, Pianta) is a stronger predictor than late-game levels
 - The model's high accuracy (R² = 0.71) suggests Individual Level times contain enough signal to reliably predict full-game speedrun capability
-- Ensemble methods successfully capture complex interactions between different level performances that linear models miss
+
 
 ---
 
@@ -292,7 +291,7 @@ SMS-AnyPercent-Predictor/
 
 **Josh Aresco**  
 Applied Machine Learning - Final Project  
-December 2024
+December 2025
 
 ---
 
